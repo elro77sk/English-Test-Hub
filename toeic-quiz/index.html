@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free TOEIC Practice Test - Real-Time Evaluation</title>
+    <!-- ../style.css links back out to the main directory styling sheet -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>TOEIC Diagnostic Simulator</h1>
+            <p>Answer all questions to check your current English band standing.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="intro-box">
+            <!-- 📄 QUESTION 1 -->
+            <div class="quiz-box" data-correct="B">
+                <div class="question">1. The CEO requested that the marketing budget proposal be submitted _______ Friday afternoon at the latest.</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="A"> A) until</label>
+                    <label><input type="radio" name="q1" value="B"> B) by</label>
+                    <label><input type="radio" name="q1" value="C"> C) since</label>
+                    <label><input type="radio" name="q1" value="D"> D) during</label>
+                </div>
+            </div>
+
+            <!-- 📄 QUESTION 2 -->
+            <div class="quiz-box" data-correct="C">
+                <div class="question">2. Although the new software is highly complex, employees are transitioning to it remarkably _______.</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="A"> A) ease</label>
+                    <label><input type="radio" name="q2" value="B"> B) easier</label>
+                    <label><input type="radio" name="q2" value="C"> C) easily</label>
+                    <label><input type="radio" name="q2" value="D"> D) easiness</label>
+                </div>
+            </div>
+
+            <!-- 📄 QUESTION 3 -->
+            <div class="quiz-box" data-correct="A">
+                <div class="question">3. Ms. Vance was selected to lead the negotiation panel due to her _______ experience in international corporate law.</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="A"> A) extensive</label>
+                    <label><input type="radio" name="q3" value="B"> B) extension</label>
+                    <label><input type="radio" name="q3" value="C"> C) extend</label>
+                    <label><input type="radio" name="q3" value="D"> D) extensively</label>
+                </div>
+            </div>
+
+            <button class="btn" onclick="gradeExam()">Evaluate My Exam</button>
+            
+            <!-- Hidden results tracker that pops out upon execution -->
+            <div id="results-screen"></div>
+        </div>
+        
+        <p style="text-align: center;"><a href="../" style="color: #1e3c72; text-decoration: none; font-weight: bold;">← Return to Portal Hub</a></p>
+    </main>
+
+    <!-- ⚡ LIGHTWEIGHT FRONTEND ENGINE (No Java/Backend needed!) -->
+    <script>
+        function gradeExam() {
+            const structures = document.querySelectorAll('.quiz-box');
+            let score = 0;
+            let answeredCount = 0;
+
+            structures.forEach((box, index) => {
+                const checkedOption = box.querySelector('input[type="radio"]:checked');
+                const correctAnswer = box.getAttribute('data-correct');
+                
+                if (checkedOption) {
+                    answeredCount++;
+                    if (checkedOption.value === correctAnswer) {
+                        score++;
+                        box.style.borderLeft = "4px solid #38b2ac";
+                        box.style.background = "#e6fffa";
+                    } else {
+                        box.style.borderLeft = "4px solid #e53e3e";
+                        box.style.background = "#fff5f5";
+                    }
+                } else {
+                    box.style.borderLeft = "4px solid #dd6b20";
+                }
+            });
+
+            if (answeredCount < structures.length) {
+                alert("Please answer all questions before submitting your test tracking evaluations!");
+                return;
+            }
+
+            const feedback = document.getElementById('results-screen');
+            feedback.style.display = "block";
+            feedback.innerHTML = `🏁 You scored ${score} out of ${structures.length} correct! (${Math.round((score/structures.length)*100)}%)`;
+            feedback.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
