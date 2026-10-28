@@ -1,0 +1,20 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f4f6f9; color: #333; line-height: 1.6; }
+.container { max-width: 900px; margin: 0 auto; padding: 20px; }
+header { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 40px 0; text-align: center; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+h2 { margin-bottom: 15px; color: #1e3c72; }
+.intro-box { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 30px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.card { background: white; padding: 25px; border-radius: 8px; border: 1px solid #e1e8ed; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: relative; display: flex; flex-direction: column; justify-content: space-between; }
+.card.disabled { opacity: 0.7; background: #fafafa; }
+.quiz-box { margin-bottom: 25px; padding: 20px; border-bottom: 1px solid #eee; }
+.question { font-weight: 600; font-size: 1.1rem; margin-bottom: 15px; color: #2c3e50; }
+.options label { display: block; background: #f8f9fa; padding: 12px 15px; margin: 8px 0; border: 1px solid #e2e8f0; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; }
+.options label:hover { background: #edf2f7; border-color: #cbd5e0; }
+.options input { margin-right: 10px; transform: scale(1.1); }
+.btn { display: inline-block; background: #007bff; color: white; text-decoration: none; padding: 12px 20px; text-align: center; border-radius: 6px; font-weight: bold; cursor: pointer; border: none; font-size: 1rem; width: 100%; transition: background 0.2s; }
+.btn:hover { background: #0056b3; }
+.badge { position: absolute; top: 15px; right: 15px; background: #e2e8f0; font-size: 0.75rem; padding: 4px 8px; border-radius: 4px; font-weight: bold; }
+#results-screen { display: none; background: #e6fffa; border: 2px solid #38b2ac; color: #234e52; padding: 20px; border-radius: 8px; text-align: center; font-size: 1.3rem; font-weight: bold; margin-top: 20px; }
+footer { text-align: center; padding: 40px 0; color: #718096; font-size: 0.9rem; margin-top: 5px; }
